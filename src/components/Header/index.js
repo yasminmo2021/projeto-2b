@@ -17,7 +17,6 @@ export default function Header(){
                         <Link href="/Quadra">Qudra</Link>
                     </li>
                 </ul>
-                
             </nav>
         </header>
     )
