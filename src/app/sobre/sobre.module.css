@@ -1,0 +1,15 @@
+.h1 {
+    color: rgba(31, 37, 37, 0.649);
+    font-size: 2.5rem;
+}
+.p{
+    font-size: 1.6rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.img{
+    border-radius: 30px;
+    display: block;
+    margin: auto;
+}
