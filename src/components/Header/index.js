@@ -31,11 +31,12 @@ const Header = () => {
             </li>
 
             <li>
-              <Link className={styles.link} href="/contatos">Contato</Link>
+              <Link className={styles.link} href="/lista">Lista</Link>
             </li>
           </ul>
         </nav>
       }
+
       <button className={styles.menuButton} onClick={toggleMenu}>
         {isMenuOpen ? 'Fechar' : 'Menu'}
       </button>
