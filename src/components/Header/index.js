@@ -33,6 +33,14 @@ const Header = () => {
             <li>
               <Link className={styles.link} href="/lista">Lista</Link>
             </li>
+
+            <li>
+              <Link className={styles.link} href="/props">Props</Link>
+            </li>
+
+            <li>
+              <Link className={styles.link} href="/card">Card</Link>
+            </li>
           </ul>
         </nav>
       }
