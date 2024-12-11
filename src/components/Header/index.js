@@ -39,7 +39,7 @@ const Header = () => {
             </li>
 
             <li>
-              <Link className={styles.link} href="/card">Card</Link>
+              <Link className={styles.link} href="/filtro">Filtro</Link>
             </li>
           </ul>
         </nav>
