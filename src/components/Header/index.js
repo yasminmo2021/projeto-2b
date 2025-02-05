@@ -15,20 +15,18 @@ const Header = () => {
     <header className={styles.header}>
 
       <div className={styles.logo}>
-        <Image className={styles.img} src="/images/logo.jpg" alt="Logo"  width={50} height={80}/>
-        <h1 className={styles.h1}>Voleibol</h1>
+        <Image className={styles.img} src="/images/logo.png" alt="Logo"  width={50} height={80}/>
+        <h1 className={styles.h1}>Clínica Dom da Vida</h1>
       </div>
 
       {isMenuOpen &&
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
           <ul className={styles.lista}>
             <li>
-              <Link className={styles.link} href='/'>Home</Link>
+              <Link className={styles.link} href='/sobre'>Home</Link>
             </li>
 
-            <li>
-              <Link className={styles.link} href="/sobre">Sobre</Link>
-            </li>
+            
 
             <li>
               <Link className={styles.link} href="/lista">Lista</Link>

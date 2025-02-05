@@ -10,11 +10,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Jockey+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Teko:wght@300..700&display=swap');
 
-.link {
+.link:hover{
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Josefin Sans", sans-serif;
+  color: #000000;
+  transform: scale(1.2);
+  transition: all
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Jockey+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
@@ -24,8 +27,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgb(185, 201, 196);
-  box-shadow: 0 5px 10px rgb(102, 128, 129);
+  background-color: #e7dccb;
+  box-shadow: 0 5px 10px #e7dccb;
 }
 
 .logo {
@@ -34,14 +37,15 @@
 }
 
 .img {
-  height: 40px;
-  /* Ajuste o tamanho  */
+  height: 90px;
+  width: 100px;
+  border-radius: 40%;
   margin-right: 10px;
 }
 
 .h1 {
   color: rgba(31, 37, 37, 0.649);
-  font-size: 1.5rem;
+  font-size: 200%;
 
 }
 
