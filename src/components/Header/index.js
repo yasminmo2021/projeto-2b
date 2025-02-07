@@ -22,26 +22,64 @@ const Header = () => {
       {isMenuOpen &&
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
           <ul className={styles.lista}>
-            <li>
-              <Link className={styles.link} href='/sobre'>Home</Link>
+            <li className={styles.link}>
+              <a href='/sobre'>Home</a>
             </li>
 
-            
-
-            <li>
-              <Link className={styles.link} href="/lista">Lista</Link>
+            <li className={styles.link}>
+              <a href="/props">Médicos</a>
+              <ul className={styles.ul_medico}>
+                <li className={styles.link}>
+                  <a href="/props">Listar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/props">Adicionar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/props">Editar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/props">Excluir</a>
+                </li>
+              </ul>
             </li>
 
-            <li>
-              <Link className={styles.link} href="/props">Props</Link>
+            <li className={styles.link}>
+              <a href="/filtro">Pacientes</a>
+              <ul className={styles.ul_medico}>
+                <li className={styles.link}>
+                  <a href="/filtro">Listar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/filtro">Adicionar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/filtro">Editar</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/filtro">Excluir</a>
+                </li>
+              </ul>
             </li>
 
-            <li>
-              <Link className={styles.link} href="/filtro">Filtro</Link>
+            <li className={styles.link}>
+              <a href="/efeitos">Agendamento</a>
+              <ul className={styles.ul_medico}>
+                <li className={styles.link}>
+                  <a href="/efeitos">Listar Consultas</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/efeitos">Agendar Consultas</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/efeitos">Editar Agendamento</a>
+                </li>
+                <li className={styles.link}>
+                  <a href="/efeitos">Cancelar</a>
+                </li>
+              </ul>
             </li>
-            <li>
-              <Link className={styles.link} href="/efeitos">Efeitos</Link>
-            </li>
+
           </ul>
         </nav>
       }
