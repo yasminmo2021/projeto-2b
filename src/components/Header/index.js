@@ -23,7 +23,7 @@ const Header = () => {
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
           <ul className={styles.lista}>
             <li className={styles.link}>
-              <a href='/sobre'>Home</a>
+              <a href='/'>Home</a>
             </li>
 
             <li className={styles.link}>
