@@ -1,9 +1,10 @@
 .h1 {
-  color: rgba(31, 37, 37, 0.649);
+  color: black;
   font-size: 3rem;
   margin-top: 2%;
 }
 .p{
+  color: black;
   font-size: 200%;
   display: flex;
   text-align: center;
@@ -11,6 +12,7 @@
   margin-top: 5%;
 }
 .p1{
+  color: black;
   font-size: 200%;
   display: flex;
   text-align: center;

@@ -9,11 +9,14 @@ export const metadata = {
   keywords: 'HTML, CSSC, JavaScript, React,Next.js'
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <Header />
+        { children }
 
       </body>
     </html>
