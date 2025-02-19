@@ -1,75 +1,91 @@
-'use client'
-import { useEffect, useState } from "react"
+'use client';
+import { useEffect, useState } from "react";
+import styles from "./page.module.css";
+import Image from "next/image";
+export default function Afis() {
+    let [nome,setNome] = useState(undefined)
+    let [medicos,setMedicos] = useState([
+    ])
+    const [busca, setBusca] = useState('');
+    const nomesBusca = medicos.filter((medico) => (medico.nome.toLowerCase().includes(busca.toLowerCase())));
+    const getMedicos = async (nome) =>{
+        let response = await fetch('https://api-clinica-2a.onrender.com/consultas');
+        let data = await response.json();
+        console.log(data,nome)
+        if (typeof nome == 'undefined') {
+            setMedicos(data);
+                
+        } else {
+            data = data.filter(item => item.nome.toLowerCase().includes(nome.toLowerCase()));
+            setMedicos(data);
+        }
+            
+        if (!response.ok) {
+            throw new Error('Não foi possível buscar'+ response.statusText);
+            }
+        }
+    
+        useEffect(()=>{
+            getMedicos(nome);
+        },[nome]);
+    return (
+        <main className={styles.main}>
+        <div className={styles.medicos_conteinar}> 
+            <h2 className={styles.h2}> Lista de Consultas</h2>
+            
+            <button className={styles.buttonMedic}>Buscar por Médico</button> <button className={styles.buttonMedic}>Buscar por Paciente</button>
+            <div className={styles.butão}>
+                <div className={styles.selecione}> 
+                    <h3>Selecione um médico</h3>
+                    <input
+                                placeholder="Digite o nome do médico"
+                                type="text"
+                                onChange={(e) => setBusca(e.target.value)}
+                                value={busca}
+                                onClick={() => setMostrar(mostrar)}
+                                >
+                                    
 
-export default function Efeitos() {
-    const [ufs, setUfs] = useState([])
-    const [estado, setEstado] = useState('')
-    const [cidades, setCidades] = useState([])
-    const [cidade, setCidade] = useState('')
-
-
-const getUfs = async () => {
-    //console.log('cidade resetada')
-    const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
-    if (!response.ok) {
-        throw new Error('Erro ao buscar os dados: ' + response.statusText)
-    }
-    const data = await response.json();
-    setUfs(data);
-    console.log(data);
-} 
-const getcidades = async () => {
-    console.log('getCidades')
-    console.log(estado)
-    const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado}/municipios?orderBy=nome`)
-    if (!response.ok) {
-        throw new Error('Erro ao buscar os dados: ' + response.statusText)
-    }
-
-    const data = await response.json();
-    setCidades(data)
-    console.log(data);
-}
-
-useEffect(() => {
-    getUfs();
-}, [])
-useEffect(() => {
-    getcidades();
-}, [estado])
-
-return (
-    <div>
-        <h1>UseEffect/ Efeitos Colaterais</h1>
-        <select
-            onChange={(ev) => {setEstado(ev.target.value), setCidade('')}}
-        >
-            <option value="">Selecione o Estado</option>
-            {ufs.map(uf => (
-                <option
-                    value={uf.id}
-                    key={uf.id}
-                    >
-                        {uf.nome};
-                </option>
-        ))}
-        </select>
-
-        <select 
-            onChange={(ev) => {setCidade(ev.target.value)}}
-            >
-                <option value="">Selecione a Cidade</option>
-                {cidades.map((cidade) => (
-                    <option
-                        value={cidade.nome}
-                        key={cidade.id}
-                    >
-                        {cidade.nome}
-                    </option>
+                            </input>
+                            <ul>
+                                {nomesBusca.map((md, i) => (
+                                    <li key={i}>{md.nome}</li>
+                                ))}
+                            </ul>
+            
+                </div>
+    </div>
+       
+        
+           
+            
+            <div className={styles.tabelaContainer}>
+                <table className={styles.tabela_medic}>
+                    <thead className={styles.thead}>
+                        <tr className={styles.tr}>
+                            <th className={styles.th}>ID</th>
+                            <th className={styles.th}>MÉDICO</th>
+                            <th className={styles.th}>ESPECIALIDADE</th>
+                            <th className={styles.th}>PACIENTE</th>
+                            <th className={styles.th}>TIPO</th>
+                        </tr>
+                    </thead>
+                    <tbody className={styles.tbody}>
+                    {medicos.map((consulta)=>(
+                        <tr className={styles.tro}  key={consulta.id}>
+                            <td className={styles.td}>{consulta.id}</td>
+                            <td className={styles.td}>{consulta.medico}</td>
+                            <td className={styles.td}>{consulta.especialidade}</td>
+                            <td className={styles.td}>{consulta.paciente}</td>
+                            <td className={styles.td}>{consulta.tipo}</td>
+                        </tr>
                     ))}
-            </select>
-            {cidade?<p>{cidade}</p>:<p>Escolha a Cidade</p>}
-        </div>
-    )
-}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </main>
+         
+);
 
+}
